@@ -19,11 +19,11 @@ app.config['DEBUG'] = True
 # the App Engine WSGI application server.
 
 
-# index page, built based on the template 'index.html
+# index page, built based on the template 'index_old.html
 @app.route('/')
 def index():
     form_url = "/hello2"  # target url to which this page POSTs form data to
-    return render_template('index.html', **locals())  # render page
+    return render_template('index_old.html', **locals())  # render page
 
 
 # simple, silly version of feedback page
@@ -89,7 +89,7 @@ def hello2():
         pickup_id = travel_case.key()
 
         # return success page
-        return render_template('welcome.html', **locals())
+        return render_template('welcome_old.html', **locals())
 
     # if, for some reason, the form data is nonsense
     return 'Sorry, no reasonable form data posted.'
