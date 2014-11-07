@@ -1,0 +1,54 @@
+<html>
+
+  <head>
+    <title>AirBuddy - Test Page</title>
+  </head>
+  
+  <body >
+    <div style="width:75%; background-color:#FFFFFF">
+      <h1>AirBuddy - Test Page</h1>
+      
+      <form action="{{ form_url }}" method="POST" enctype="multipart/form-data">
+        <table>
+        
+          <tr>
+            <td>Vorname, Nachname:</td>
+            <td><input type='textfield' id="firstname" name='firstname'/></td><td><input type='textfield' id="lastname" name='lastname' /></td>
+          </tr>
+          
+          <tr>
+            <td>Flugnummer:</td>
+            <td><input type='textfield' id="airline_symbol" name='airline_symbol' size="2" maxlength="2" value="LH"/></td><td><input type='textfield' id="flight_number" name='flight_number' size="4" maxlength="4"/></td>
+          </tr>
+          
+          <tr>
+            <td>Abflug-Datum:</td>
+            <td><input type='textfield' id="flight_day" name='flight_day' size="2" maxlength="2"/>.<input type='textfield' id="flight_month" name='flight_month' size="2" maxlength="2"/>.<input type='textfield' id="flight_year" name='flight_year' size="4" maxlength="4" /></td>
+          </tr>
+          
+          <tr>
+            <td>Meine E-Mail:</td>
+            <td><input type='textfield' id="email" name='email' /></td>
+          </tr>
+          
+          <tr>
+            <td>Name des Abholers:</td>
+            <td><input type='textfield' id="pickup_firstname" name='pickup_firstname' /></td><td><input type='textfield' id="pickup_lastname" name='pickup_lastname' /></td>
+          </tr>
+          
+          <tr>
+            <td>Email des Abholers:</td>
+            <td><input type='textfield' id="pickup_email" name='pickup_email' /></td>
+          </tr>
+          
+          <tr>
+            <td colspan=2 align="center">
+                <input type='submit' name='submit' value='Abholen lassen!'>
+            </td>
+          </tr>
+        </table>
+      </form>
+      
+</body>
+
+</html>

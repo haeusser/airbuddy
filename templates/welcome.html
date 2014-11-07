@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Welcome Page</title>
+  </head>
+  <body >
+    <div style="width:75%; background-color:#FFFFFF">
+      <h1>PickMeUp</h1>
+      <div>You entered the following data:</div>
+      <br>
+        {# COMMENT: This is me being lazy about printing the list of variables.
+                    In a final setup it might be smarter to hard code each
+                    key-value-pair in order to do pretty formatting etc ... #}
+        <table>
+        {% for key in passed_vars %}
+          <tr>
+            <td colspan=2 align="left">{% block loop_item scoped %}{{ key }}: {{ passed_vars[key] }}{% endblock %}</td>
+          </tr>
+        {% endfor %}
+        </table>
+        
+      <br>
+       <div>pickup_id: {{ pickup_id }}</div>
+      <br>
+        <div>Flight Status: {{ flight_status }}</div>
+      <br>
+</body>
+</html>
