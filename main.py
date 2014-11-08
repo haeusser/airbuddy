@@ -9,6 +9,7 @@ import facepy
 import fb_calls
 from geopy.geocoders import Nominatim
 import requests
+import itertools
 
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
@@ -42,7 +43,7 @@ def getFriendsList():
 
 @app.route('/enterdate', methods=['POST', 'GET'])
 def enterdate():
-    form_url = '/wait'
+    form_url = '/results'
     data = facebook.get('/me').data
     if 'id' in data and 'name' in data:
         user_id = data['id']
@@ -68,24 +69,38 @@ def get_latlon(city):
 
 @app.route('/wait', methods=['POST', 'GET'])
 def wait():
-    friends_list = fb_response
-    for friend in friends_list['data']:
-        friend['airport'] = get_iata(get_latlon(friend['location']['name']))
-
-    # group by IATA code
-
-    # get price
-    
-
 
     return render_template('wait.html', **locals())
 
+def get_price(airport):
+    return 199
 
 @app.route('/results', methods=['POST', 'GET'])
 def results():
+
+    passed_vars = dict()
+    if 'firstname' in request.form:
+        for key, value in request.form.items():
+            passed_vars[key] = value
+
+    friends_list = fb_response['data']
+    for friend in friends_list:
+        friend['airport'] = get_iata(get_latlon(friend['location']['name']))
+
+    airports = dict()
+    for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
+        airports[key] = list(group)
+
+    prices = dict()
+    for a in airports:
+        prices[a] = get_price(a)
+
+
+
     passed_vars = dict()
     passed_vars['friend 1'] = 'city 1, 399$'
     passed_vars['friend 2'] = 'city 2, 199$'
+
     return render_template('results.html', **locals())
 
 

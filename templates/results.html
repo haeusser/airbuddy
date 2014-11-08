@@ -68,6 +68,17 @@
             </table>
             
         </div>
+
+
+
+        <table>
+        {% for key in passed_vars %}
+          <tr>
+            <td colspan=2 align="left">{% block loop_item scoped %}{{ key }}: {{ passed_vars[key] }}{% endblock %}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
     
     </body>
 
