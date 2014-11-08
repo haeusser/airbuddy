@@ -91,7 +91,7 @@ def pop_login_session():
     session.pop('facebook_token', None)
 
 
-@app.route("/facebook_login")
+@app.route("/facebook_login", methods=['POST', 'GET'])
 def facebook_login():
 #    if session.has_key('facebook_oauth_tokens'):
 #        del session['facebook_oauth_tokens']
