@@ -71,7 +71,13 @@ def wait():
     friends_list = fb_response
     for friend in friends_list['data']:
         friend['airport'] = main.get_iata(main.get_latlon(friend['location']['name']))
+
+    # group by IATA code
+
+    # get price
     
+
+
     return render_template('wait.html', **locals())
 
 
