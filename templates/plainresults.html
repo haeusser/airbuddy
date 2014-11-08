@@ -13,10 +13,11 @@
         So you want to travel from {{ user_location }} on {{ start_date }} and return on {{ return_date }}.
         <table>
         {% for airport in prices %}
+
           <tr>
             <td colspan=2 align="left">{% block loop_item scoped %}{{ airport }}: {{ prices[airport] }}<br>
                 {% for friend in airports[airport] %}
-                {% block loop_item2 scoped %} {{ loop_item2.index }} :  {{ friend['name'] }} ({{ friend['location']['name'] }})<br>
+                {% block loop_item2 scoped %}{{ friend['id'] }}:  {{ friend['name'] }} ({{ friend['location']['name'] }})<br>
               {% endblock %}{% endfor %}
                 {% endblock %}</td>
 

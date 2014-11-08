@@ -10,6 +10,7 @@ import fb_calls
 from geopy.geocoders import Nominatim
 import requests
 import itertools
+import datetime
 
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'lib'))
@@ -72,8 +73,23 @@ def wait():
 
     return render_template('wait.html', **locals())
 
-def get_price(airport):
-    return 199
+def get_price(loc, dests, go, back):
+go_date = datetime.datetime(int(go[0:4]),int(go[5:7]),int(go[8:10]))
+back_date = datetime.datetime(int(back[0:4]),int(back[5:7]),int(back[8:10]))
+stay = back_date-go_date
+stay = stay.days
+
+
+url = 'http://lh-fs-json.production.vayant.com'
+request = {"User": "LufthansaTest", "Pass": "8b35317451999984abf8bf38b5863341da2b2e97", "Environment": "lh-vzg", "Origin": loc, "Destination": dests, "DepartureFrom": go, "LengthOfStay": stay, "MaxSolutions": 1}
+
+
+headers = {'content-type': 'application/json'}
+
+response = requests.post(url, data=request, headers=headers).content
+    return response[response.find("<TextData>CityCode#")+19:response.find("<TextData>CityCode#")+22]
+
+
 
 @app.route('/results', methods=['POST', 'GET'])
 def results():
@@ -96,11 +112,7 @@ def results():
     for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
         airports[key] = list(group)
 
-    prices = dict()
-    for a in airports:
-        prices[a] = get_price(a)
-
-
+    prices = get_price(user_location, [a for a in airports], start_date, return_date)
 
     return render_template('plainresults.html', **locals())
 
