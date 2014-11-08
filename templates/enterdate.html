@@ -32,7 +32,7 @@
             <img id="img-logo-simple" src="../static/images/airbuddy-logo-simple.png" alt="">
             <br>
             <br>
-            <form action="#" method="POST" enctype="multipart/form-data" onSubmit="document.getElementById('loading-status').style.display='inline';">
+            <form action="{{ form_url }}" method="POST" enctype="multipart/form-data" onSubmit="document.getElementById('loading-status').style.display='inline';">
                 <label>Your location</label>
                 <input type="text" name="location" tabindex="1" value="{{ location }}">
                 <br><br>
