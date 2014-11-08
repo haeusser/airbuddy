@@ -404,7 +404,7 @@ blockquote {
     right: 0;
     left: 0;
     height: 666px;
-    background-image: url("../images/bg.jpg");
+    background-image: -webkit-image-set url("../images/bg.jpg");
     background-position: 50% 0;
     background-repeat: no-repeat;
     z-index: -1;
@@ -435,6 +435,7 @@ blockquote {
 
     #fb-btn {
         width: 75%;
+        max-width: 400px;
         margin: 0 auto;
         font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
         font-size: 1.000em;
