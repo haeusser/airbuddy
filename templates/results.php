@@ -91,11 +91,6 @@
             {% endblock %}
             {% endfor %}
         </table>
-        <?php
-        $x = 5;
-        $x = 5 + 1;
-        echo "If you didn't know: $x";
-        ?>
         <script type="text/javascript" src="../static/js/retina/retina.js"></script>
     
     </body>
