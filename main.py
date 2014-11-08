@@ -74,6 +74,7 @@ def wait():
     return render_template('wait.html', **locals())
 
 def get_price(loc, dests, go, back):
+
     go_date = datetime.datetime(int(go[0:4]),int(go[5:7]),int(go[8:10]))
     back_date = datetime.datetime(int(back[0:4]),int(back[5:7]),int(back[8:10]))
     stay = back_date-go_date
@@ -117,9 +118,9 @@ def results():
     for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
         airports[key] = list(group)
 
-    prices = get_price(user_location, [a for a in airports], start_date, return_date)
-
-    return render_template('plainresults.html', **locals())
+    #prices = get_price(user_location, [a for a in airports], start_date, return_date)
+    prices = {'ROM': 199, 'MOW': 199, 'ATL': 199, 'LON': 199, 'SFO': 199, 'MAD': 199, 'NYC': 199, 'NCE': 199}
+    return render_template('results.html', **locals())
 
 
 @app.route('/favicon.ico')
