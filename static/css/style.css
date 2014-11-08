@@ -404,7 +404,7 @@ blockquote {
     right: 0;
     left: 0;
     height: 666px;
-    background-image: -webkit-image-set url("../images/bg.jpg");
+    background-image: url("../images/bg.jpg");
     background-position: 50% 0;
     background-repeat: no-repeat;
     z-index: -1;
