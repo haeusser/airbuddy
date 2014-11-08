@@ -1,46 +1,7 @@
-@charset "utf-8";
-/*	
- *	Airbuddy
- *	http://www.airbuddy.eu
- *	
- *	Author: Coinlex Webdesign
- *	http://www.coinlex.com
- *	
- *	Date: November 2014
- *	
- */
-
-
-
-/* --------------------------------------------------------------------------------- */
-/*	Color Sheme
-	
-	Color #1 (yellow)	:	#E6A901
-    Color #2 (blue)	    :	#040C39
-	Text (p)			:	#333333
-	Background body		:	#FFFFFF
-
-/* --------------------------------------------------------------------------------- */
-
-
-
-/* --------------------------------------------------------------------------------- */
-/*	
-	
-	0. Reset
-	1. Standard Styles
-	2. Basic Styles
-	3. Typography
-	4. General
-	5. Navigation
-	6. Header
-	7. Content
-	8. Sidebar
-	9. Footer
-	
-/* --------------------------------------------------------------------------------- */
-
-
+* {
+		padding: 0px;
+		margin: 0px;
+}
 
 /*  0. Reset (by E. Meyer http://meyerweb.com/eric/tools/css/reset/)
 /* --------------------------------------------------------------------------------- */
@@ -208,7 +169,7 @@ html {
 }
 
 body {
-    background-color: #FFFFFF;
+	background-color: #EEEEEE;
 }
 
 
@@ -217,12 +178,12 @@ body {
 /* --------------------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-	color: #E6A901;
+	font-family: 'Lato', 'Ubuntu', Arial, Helvetica, sans-serif;
+	color: #53AD43;
 	line-height: normal;
 	font-weight: normal;
 	text-decoration: none;
-	margin: 0.688m 0;
+	margin: 0.688em 0;
 }
 
 h1 {
@@ -251,8 +212,8 @@ h6 {
 
 p, li, dl, dt, dd, blockquote, input, table, form label {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-	color: #333333;
-	font-size: 0.938em;
+	color: #2C2C2C;
+	font-size: 0.875em;
 	line-height: 1.6;
 	font-weight: normal;
 	text-decoration: none;
@@ -262,12 +223,6 @@ p, li, dl, dt, dd, blockquote, input, table, form label {
 	-ms-hyphens: auto;
 	hyphens: auto;
 }
-	
-	/*
-    @media screen and (max-width: 767px)  { p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
-	@media screen and (min-width: 768px)  {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
-	@media screen and (min-width: 1024px) {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; } }
-    */
 
 p {
 	margin: 1em 0;
@@ -281,10 +236,16 @@ p a, li a, table a {
 	text-decoration: underline;
 }
 
+	.ie7 p a, .ie7 li a, .ie7 table a
+    .ie8 p a, .ie8 li a, .ie8 table a {
+		color: #53AD43;
+	}
+
 p a:hover, li a:hover, table a:hover {
-	color: #E6A901;
+	color: #53AD43;
 	text-decoration: underline;
 }
+
 
 
 
@@ -306,40 +267,34 @@ p a:hover, li a:hover, table a:hover {
 	float: right;
 }
 
-
 label {
     display: block;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-	color: #333333;
-	font-size: 1.250em !important;
-	line-height: 1.6;
 }
 
-input[type=text], input[type=password], input[type=date], textarea {
+input[type=text], input[type=password], textarea {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-	color: #333333;
-	background-color: #EBEBEB;
-	border: 1px solid #FFF;
+	color: #2C2C2C;
+	background-color: #FFF;
+	border: 1px solid #CCC;
 	padding: 3px;
-    margin: 0 0 7px 0;
-    font-size: 0.875em;
+    margin: 0 0 7px 0
 }
 
-	input[type=text]:focus, input[type=password]:focus, input[type=date]:focus {
-		border: 1px solid #E6A901;
+	input[type=text]:focus, input[type=password]:focus {
+		border: 1px solid #53AD43;
 	}
 	
 input[type=submit] {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	color: #FFF;
-	background-color: #040C39;
+	font-weight: bold;
+	background-color: #53AD43;
 	border: 1px solid #FFF;
 	padding: 3px;
-    font-size: 0.938em;
 }
 
 	input[type=submit]:active, input[type=submit]:hover {
-		color: #E6A901;
+		color: #2C2C2C;
 		cursor: pointer;
 	}
 	
@@ -348,7 +303,7 @@ table {
 	margin: 0 0 1em 0;
 	border-collapse: collapse;
 	border-spacing: 0;
-    border: none;
+	border: 1px solid #CCC;
 }
 
 	table caption {
@@ -364,122 +319,32 @@ table {
 	
 	table td {
 		padding: 5px;
-        text-align: center;
-        width: 33%;
+		border: 1px solid #CCC;
 	}
-
-        table td h4 {
-            font-weight: bold;
-            text-align: left;
-        }
-
-        table td.price {
-            font-style: italic;
-            text-align: right;
-        }
 	
 blockquote {
     background-color: #EEE;
 	border-left: 2px solid #53AD43;
 }
-	
-	
 
 
 
-/*  5. Navigation
-/* --------------------------------------------------------------------------------- */
 
-/* ... */
+/* div - IDs */
 
+nav#nav_main, header, #nav_line, #slider_container, #slider_overlay, #content aside, footer {
+    display: none;
+}
 
-
-/*  6. Background Iamge
-/* --------------------------------------------------------------------------------- */
-
-#background-image {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 666px;
-    background-image: url("../images/bg.jpg");
-    background-position: 50% 0;
-    background-repeat: no-repeat;
-    z-index: -1;
+#content {
+    display: 100%;
 }
 
 
 
 
-/*  7. Content
-/* --------------------------------------------------------------------------------- */
 
-#page-content-startpage {
-    margin: 10px;
-}
-
-#page-content-subpage {
-    margin: 20px;
-}
-
-#slogan {
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #FFF;
-    font-weight: 300;
-    margin: 20px 0 0 0;
-    line-height: 1.5;
-}
-
-#img-logo {
-    margin: 30px auto 3px auto;
-}
-
-#fb-btn {
-    width: 75%;
-    margin: 0 auto;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-    font-size: 1.000em;
-}
-
-.current-location {
-    font-size: 0.938em;
-    margin: 0 0 0 30px;
-    line-height: 1;
-}
-
-.nearest-airport {
-    font-size: 1.375em;
-    margin: 0 0 0 30px;
-    padding: -1em 0 0 0;
-    font-weight: bold;
-    line-height: 1;
-}
-
-
-/*  8. Sidebar
-/* --------------------------------------------------------------------------------- */
-
-
-
-
-/*  9. Footer
-/* --------------------------------------------------------------------------------- */
-
-footer {
-	width: 980px;
-	padding-bottom: 30px;
-	margin: 0 auto;
-}
-
-
-	
-
-
-
-
-
+/* div - class */
 
 
 
