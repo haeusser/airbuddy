@@ -79,6 +79,7 @@ def get_price(airport):
 def results():
 
     passed_vars = dict()
+
     if 'location' in request.form:
         for key, value in request.form.items():
             passed_vars[key] = value
@@ -101,11 +102,7 @@ def results():
 
 
 
-    passed_vars = dict()
-    passed_vars['friend 1'] = 'city 1, 399$'
-    passed_vars['friend 2'] = 'city 2, 199$'
-
-    return render_template('results.html', **locals())
+    return render_template('plainresults.html', **locals())
 
 
 @app.route('/favicon.ico')
