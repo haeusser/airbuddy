@@ -205,11 +205,10 @@ html {
 	/* width: 100%; height: 100%; */
 	-webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
-    margin: 10px;
 }
 
 body {
-	background-color: #FFFFFF;
+    background-color: #FFFFFF;
 }
 
 
@@ -223,7 +222,7 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: normal;
 	font-weight: normal;
 	text-decoration: none;
-	margin: 0.688em 0;
+	margin: 0.688m 0;
 }
 
 h1 {
@@ -253,7 +252,7 @@ h6 {
 p, li, dl, dt, dd, blockquote, input, table, form label {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	color: #333333;
-	font-size: 0.875em;
+	font-size: 0.938em;
 	line-height: 1.6;
 	font-weight: normal;
 	text-decoration: none;
@@ -264,9 +263,11 @@ p, li, dl, dt, dd, blockquote, input, table, form label {
 	hyphens: auto;
 }
 	
-	@media screen and (max-width: 767px)  { p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
+	/*
+    @media screen and (max-width: 767px)  { p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
 	@media screen and (min-width: 768px)  {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
 	@media screen and (min-width: 1024px) {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; } }
+    */
 
 p {
 	margin: 1em 0;
@@ -279,11 +280,6 @@ p a, li a, table a {
 	line-height: inherit;
 	text-decoration: underline;
 }
-
-	.ie7 p a, .ie7 li a, .ie7 table a
-    .ie8 p a, .ie8 li a, .ie8 table a {
-		color: #53AD43;
-	}
 
 p a:hover, li a:hover, table a:hover {
 	color: #53AD43;
@@ -313,32 +309,37 @@ p a:hover, li a:hover, table a:hover {
 
 label {
     display: block;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	color: #333333;
+	font-size: 1.250em !important;
+	line-height: 1.6;
 }
 
-input[type=text], input[type=password], textarea {
+input[type=text], input[type=password], input[type=date], textarea {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-	color: #2C2C2C;
-	background-color: #FFF;
-	border: 1px solid #CCC;
+	color: #333333;
+	background-color: #EBEBEB;
+	border: 1px solid #FFF;
 	padding: 3px;
-    margin: 0 0 7px 0
+    margin: 0 0 7px 0;
+    font-size: 0.875em;
 }
 
-	input[type=text]:focus, input[type=password]:focus {
-		border: 1px solid #53AD43;
+	input[type=text]:focus, input[type=password]:focus, input[type=date]:focus {
+		border: 1px solid #E6A901;
 	}
 	
 input[type=submit] {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	color: #FFF;
-	font-weight: bold;
-	background-color: #53AD43;
+	background-color: #040C39;
 	border: 1px solid #FFF;
 	padding: 3px;
+    font-size: 0.813em;
 }
 
 	input[type=submit]:active, input[type=submit]:hover {
-		color: #2C2C2C;
+		color: #E6A901;
 		cursor: pointer;
 	}
 	
@@ -403,7 +404,12 @@ blockquote {
 /*  7. Content
 /* --------------------------------------------------------------------------------- */
 
-#page-content {
+#page-content-startpage {
+    margin: 10px;
+}
+
+#page-content-subpage {
+    margin: 20px;
 }
 
 #slogan {
@@ -412,11 +418,11 @@ blockquote {
     color: #FFF;
     font-weight: 300;
     margin: 20px 0 0 0;
+    line-height: 1.5;
 }
 
 #img-logo {
-    margin: 35px 0 10px 0;
-    text-align: center;
+    margin: 30px auto 3px auto;
 }
 
 #fb-btn {

@@ -21,10 +21,6 @@
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
         <link rel="stylesheet" type="text/css" media="print" href="css/print.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap-social.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/bootstrap.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/docs.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="assets/css/font-awesome.css" />
         <link rel="shortcut icon" href="images/favicon.ico" />
         
         <script type="text/javascript" src="js/jquery-1.9.0.js"></script>
@@ -32,27 +28,32 @@
 
     </head>
 
-    <body style="background-color:#0A0502;">
+    <body>
         
-        <div id="page-content-startpage">
+        <div id="page-content-subpage">
             
-            
-            <h4 id="slogan">There is no better way <br>to fly to your friends</h4>
-
-            <center><img id="img-logo" src="images/airbuddy-logo.png" alt=""></center>
-
+            <img id="img-logo-simple" src="images/airbuddy-logo-simple.png" alt="">
             <br>
             <br>
-            <a href="{{ form_url }}" id="fb-btn" class="btn btn-block btn-social btn-facebook"><i class="fa fa-facebook"></i> Sign in with Facebook</a>
-            
-            <br>
-            <br>
-            <br>
+            <form>
+                <label>Your location<br>
+                    <input type="text">
+                </label>
+                <br>
+                <label>Depart on<br>
+                    <input type="date"><br>
+                    Return on<br>
+                    <input type="date"><br>
+                    <br>
+                    <input type="submit" value="Find flights to your friends">
+                </label>
+            </form>
+            <!--
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            -->
             
         
         </div>
-        
-        <div id="background-image"></div>
     
     </body>
 

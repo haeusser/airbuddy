@@ -5,6 +5,7 @@
  */
 
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/*
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -225,6 +226,7 @@ th {
   img {
     max-width: 100% !important;
   }
+*/
   p,
   h2,
   h3 {
@@ -889,6 +891,7 @@ th {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
+/*
 html {
   font-size: 10px;
 
@@ -923,6 +926,7 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
+*/
 figure {
   margin: 0;
 }
