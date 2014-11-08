@@ -7,15 +7,11 @@ threadsafe: true
 handlers:
 - url: .*
   script: main.app
-- url: /templates/css
-  static_dir: templates/css
-- url: /templates/images
-  static_dir: templates/images
-- url: /static/assets/css
-  static_dir: static/assets/css
-- url: /favicon.ico
+- url: /css
+  static_dir: static/css
+- url: /images
   static_dir: static/images
-  
+
 libraries:
 - name: jinja2
   version: "latest"
