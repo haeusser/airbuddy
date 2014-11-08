@@ -1,0 +1,470 @@
+@charset "utf-8";
+/*	
+ *	Airbuddy
+ *	http://www.airbuddy.eu
+ *	
+ *	Author: Coinlex Webdesign
+ *	http://www.coinlex.com
+ *	
+ *	Date: November 2014
+ *	
+ */
+
+
+
+/* --------------------------------------------------------------------------------- */
+/*	Color Sheme
+	
+	Color #1 (yellow)	:	#E6A901
+    Color #2 (blue)	    :	#040C39
+	Text (p)			:	#333333
+	Background body		:	#FFFFFF
+
+/* --------------------------------------------------------------------------------- */
+
+
+
+/* --------------------------------------------------------------------------------- */
+/*	
+	
+	0. Reset
+	1. Standard Styles
+	2. Basic Styles
+	3. Typography
+	4. General
+	5. Navigation
+	6. Header
+	7. Content
+	8. Sidebar
+	9. Footer
+	
+/* --------------------------------------------------------------------------------- */
+
+
+
+/*  0. Reset (by E. Meyer http://meyerweb.com/eric/tools/css/reset/)
+/* --------------------------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+audio, canvas, video {
+	display: inline-block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+a img {
+	border: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/*  1. Standard Styles
+/* --------------------------------------------------------------------------------- */
+
+a {
+	color: inherit;
+	outline: 0;
+	text-decoration: none;
+}
+
+a:hover {
+	color: inherit;
+}
+
+ol {
+	list-style: decimal;
+	margin-bottom: 1em;
+}
+
+ul {
+	list-style: disc;
+	margin-bottom: 1em;
+}
+
+li {
+	margin-left: 2em;
+}
+
+li li {
+	font-size: 1em;
+}
+
+dl {
+	margin-bottom: 1em;
+}
+
+dl dt {
+	font-size: 1em;
+}
+
+dl dd {
+	font-size: 1em;
+}
+
+dd {
+	margin-left: 1.5em;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+i, em {
+	font-style: italic;
+}
+
+u {
+	text-decoration: underline;
+}
+
+blockquote {
+    padding: 1em 1.5em;
+	font-style: italic;
+}
+
+small {
+    font-size: 75%;
+}
+
+pre, code, kbd, samp {
+	font-family: monospace, sans-serif;
+	margin: 1em 0;
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup {
+    top: -0.5em;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+	blockquote p, p input, p label {
+		font-size: 1em !important;
+	}
+
+
+
+/*  2. Basic Styles
+/* --------------------------------------------------------------------------------- */
+
+html {
+	/* width: 100%; height: 100%; */
+	-webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    margin: 10px;
+}
+
+body {
+	background-color: #FFFFFF;
+}
+
+
+
+/*  3. Typography
+/* --------------------------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	color: #E6A901;
+	line-height: normal;
+	font-weight: normal;
+	text-decoration: none;
+	margin: 0.688em 0;
+}
+
+h1 {
+	font-size: 1.8125em;
+}
+
+h2 {
+	font-size: 1.750em;
+}
+
+h3 {
+	font-size: 1.600em;
+}
+
+h4 {
+	font-size: 1.450em;
+}
+
+h5 {
+	font-size: 1.300em;
+}
+
+h6 {
+	font-size: 1.200em;
+}
+
+p, li, dl, dt, dd, blockquote, input, table, form label {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	color: #333333;
+	font-size: 0.875em;
+	line-height: 1.6;
+	font-weight: normal;
+	text-decoration: none;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+}
+	
+	@media screen and (max-width: 767px)  { p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
+	@media screen and (min-width: 768px)  {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
+	@media screen and (min-width: 1024px) {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; } }
+
+p {
+	margin: 1em 0;
+	text-align: justify;
+}
+
+p a, li a, table a {
+	font-family: inherit;
+	color: inherit;
+	line-height: inherit;
+	text-decoration: underline;
+}
+
+	.ie7 p a, .ie7 li a, .ie7 table a
+    .ie8 p a, .ie8 li a, .ie8 table a {
+		color: #53AD43;
+	}
+
+p a:hover, li a:hover, table a:hover {
+	color: #53AD43;
+	text-decoration: underline;
+}
+
+
+
+/*  4. General
+/* --------------------------------------------------------------------------------- */
+
+.clearer {
+	clear: both;
+	height: 0;
+}
+
+.left_50 {
+	width: 48%;
+	float: left;
+}
+
+.right_50 {
+	width: 48%;
+	float: right;
+}
+
+
+label {
+    display: block;
+}
+
+input[type=text], input[type=password], textarea {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	color: #2C2C2C;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	padding: 3px;
+    margin: 0 0 7px 0
+}
+
+	input[type=text]:focus, input[type=password]:focus {
+		border: 1px solid #53AD43;
+	}
+	
+input[type=submit] {
+	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+	color: #FFF;
+	font-weight: bold;
+	background-color: #53AD43;
+	border: 1px solid #FFF;
+	padding: 3px;
+}
+
+	input[type=submit]:active, input[type=submit]:hover {
+		color: #2C2C2C;
+		cursor: pointer;
+	}
+	
+table {
+	width: 100%;
+	margin: 0 0 1em 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	border: 1px solid #CCC;
+}
+
+	table caption {
+		margin: 40px 0;
+	}
+	
+	table th {
+		padding: 5px;
+		font-weight: bold;
+		background-color: #53AD43;
+		color: #FFF;
+	}
+	
+	table td {
+		padding: 5px;
+		border: 1px solid #CCC;
+	}
+	
+blockquote {
+    background-color: #EEE;
+	border-left: 2px solid #53AD43;
+}
+	
+	
+
+
+
+/*  5. Navigation
+/* --------------------------------------------------------------------------------- */
+
+/* ... */
+
+
+
+/*  6. Background Iamge
+/* --------------------------------------------------------------------------------- */
+
+#background-image {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 666px;
+    background-image: url("../images/bg.jpg");
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+
+
+
+/*  7. Content
+/* --------------------------------------------------------------------------------- */
+
+#page-content {
+}
+
+#slogan {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #FFF;
+    font-weight: 300;
+    margin: 20px 0 0 0;
+}
+
+#img-logo {
+    margin: 35px 0 10px 0;
+    text-align: center;
+}
+
+#fb-btn {
+    width: 75%;
+    margin: 0 auto;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+    font-size: 1.000em;
+}
+
+
+
+/*  8. Sidebar
+/* --------------------------------------------------------------------------------- */
+
+#content aside {
+    float: right;
+    width: 220px;
+    padding: 2.75em 20px 0 20px;
+    font-size: 0.938em !important;
+}
+
+    @media screen and (max-width: 767px)  { #content aside { float: none; width: 90%; margin: 0 auto 3em auto; padding: 0; } }
+    @media screen and (min-width: 768px)  {	#content aside { float: none; width: 94%; margin: 0 auto 3em auto; padding: 0; } }
+    @media screen and (min-width: 1024px) {	#content aside { float: right; width: 220px; margin: 0; padding: 2.75em 20px 0 20px; } }
+
+    #content aside .textwidget {
+        padding-bottom: 3em;
+    }
+
+
+
+/*  9. Footer
+/* --------------------------------------------------------------------------------- */
+
+footer {
+	width: 980px;
+	padding-bottom: 30px;
+	margin: 0 auto;
+}
+
+
+	
+
+
+
+
+
+
+
+
+
