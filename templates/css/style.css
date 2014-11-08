@@ -282,7 +282,7 @@ p a, li a, table a {
 }
 
 p a:hover, li a:hover, table a:hover {
-	color: #53AD43;
+	color: #E6A901;
 	text-decoration: underline;
 }
 
@@ -335,7 +335,7 @@ input[type=submit] {
 	background-color: #040C39;
 	border: 1px solid #FFF;
 	padding: 3px;
-    font-size: 0.813em;
+    font-size: 0.938em;
 }
 
 	input[type=submit]:active, input[type=submit]:hover {
