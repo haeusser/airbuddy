@@ -120,7 +120,7 @@ def results():
 
     #prices = get_price(user_location, [a for a in airports], start_date, return_date)
     prices = {'ROM': 199, 'MOW': 199, 'ATL': 199, 'LON': 199, 'SFO': 199, 'MAD': 199, 'NYC': 199, 'NCE': 199}
-    return render_template('results.html', **locals())
+    return render_template('results.php', **locals())
 
 
 @app.route('/favicon.ico')
