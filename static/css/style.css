@@ -405,6 +405,10 @@ blockquote {
     left: 0;
     height: 666px;
     background-image: url("../images/bg.jpg");
+    background: -webkit-image-set(  url("../images/bg.jpg") 1x,
+                                    url("../images/bg@2x.jpg") 2x);
+    background:         image-set(  url("../images/bg.jpg") 1x,
+                                    url("../images/bg@2x.jpg") 2x);
     background-position: 50% 0;
     background-repeat: no-repeat;
     z-index: -1;
