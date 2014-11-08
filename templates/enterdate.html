@@ -32,7 +32,7 @@
             <img id="img-logo-simple" src="../static/images/airbuddy-logo-simple.png" alt="">
             <br>
             <br>
-            <form action="{{ form_url }}" method="POST" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data" onSubmit="document.getElementById('loading-status').style.display='inline';">
                 <label>Your location</label>
                 <input type="text" name="location" tabindex="1" value="{{ location }}">
                 <br><br>
@@ -41,7 +41,8 @@
                 <label>Return on</label>
                 <input type="date" name="return" tabindex="3"><br>
                 <br><br>
-                <input type="submit" value="Find flights to your friends" tabindex="4">
+                <input type="submit" value="Find flights to your friends" tabindex="4"><br>
+                <img id="loading-status" src="../static/images/loading.gif" alt="" style="display:none;" />
             </form>
             <!--
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
