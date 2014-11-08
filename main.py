@@ -70,7 +70,7 @@ def get_latlon(city):
 def wait():
     friends_list = fb_response
     for friend in friends_list['data']:
-        friend['airport'] = main.get_iata(main.get_latlon(friend['location']['name']))
+        friend['airport'] = get_iata(get_latlon(friend['location']['name']))
 
     # group by IATA code
 
