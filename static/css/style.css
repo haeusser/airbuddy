@@ -420,43 +420,58 @@ blockquote {
     margin: 10px;
 }
 
+    #slogan {
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+        text-align: center;
+        color: #FFF;
+        font-weight: 300;
+        margin: 20px 0 0 0;
+        line-height: 1.5;
+    }
+
+    #img-logo {
+        margin: 30px auto 3px auto;
+    }
+
+    #fb-btn {
+        width: 75%;
+        margin: 0 auto;
+        font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
+        font-size: 1.000em;
+    }
+
 #page-content-subpage {
     margin: 20px;
 }
 
-#slogan {
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    text-align: center;
-    color: #FFF;
-    font-weight: 300;
-    margin: 20px 0 0 0;
-    line-height: 1.5;
-}
+    .current-location {
+        font-size: 0.938em;
+        margin: 0 0 0 30px;
+        line-height: 1;
+    }
 
-#img-logo {
-    margin: 30px auto 3px auto;
-}
+    .nearest-airport {
+        font-size: 1.375em;
+        margin: 0 0 0 30px;
+        padding: -1em 0 0 0;
+        font-weight: bold;
+        line-height: 1;
+    }
 
-#fb-btn {
-    width: 75%;
-    margin: 0 auto;
-    font-family: 'Open Sans', Arial, Helvetica, sans-serif !important;
-    font-size: 1.000em;
-}
+    .btn-getticket {
+        display: inline-block;
+        background-color: #040C39;
+        padding: 3px 4px;
+        text-decoration: none;
+        color: #FFF;
+        border-radius: 4px;
+    }
 
-.current-location {
-    font-size: 0.938em;
-    margin: 0 0 0 30px;
-    line-height: 1;
-}
+        .btn-getticket:hover {
+            color: #E6A901;
+            text-decoration: none;
+        }
 
-.nearest-airport {
-    font-size: 1.375em;
-    margin: 0 0 0 30px;
-    padding: -1em 0 0 0;
-    font-weight: bold;
-    line-height: 1;
-}
 
 
 /*  8. Sidebar
