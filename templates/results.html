@@ -82,8 +82,8 @@
                 <td>{{ prices[airport] }}</td>
                 <td><a class="btn-getticket" href="#">Get ticket!</a></td>
             </tr>
-            {% for friend in airports[airport] %}
             <tr>
+                {% for friend in airports[airport] %}
                 {% block loop_item2 scoped %}
                 <td>{{ friend['id'] }}<br>{{ friend['name'] }}<br>{{ friend['location']['name'] }}</td>
                 {% endblock %}{% endfor %}
