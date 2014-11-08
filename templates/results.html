@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Title</title>
+  </head>
+  <body >
+    <div style="width:75%; background-color:#FFFFFF">
+      <h1>Here are the results!</h1>
+      <div>Blabla:</div>
+      <br>
+        {# COMMENT: This is me being lazy about printing the list of variables.
+                    In a final setup it might be smarter to hard code each
+                    key-value-pair in order to do pretty formatting etc ... #}
+        <table>
+        {% for key in passed_vars %}
+          <tr>
+            <td colspan=2 align="left">{% block loop_item scoped %}{{ key }}: {{ passed_vars[key] }}{% endblock %}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+</body>
+</html>
