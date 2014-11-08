@@ -74,19 +74,24 @@ def wait():
     return render_template('wait.html', **locals())
 
 def get_price(loc, dests, go, back):
-go_date = datetime.datetime(int(go[0:4]),int(go[5:7]),int(go[8:10]))
-back_date = datetime.datetime(int(back[0:4]),int(back[5:7]),int(back[8:10]))
-stay = back_date-go_date
-stay = stay.days
+    go_date = datetime.datetime(int(go[0:4]),int(go[5:7]),int(go[8:10]))
+    back_date = datetime.datetime(int(back[0:4]),int(back[5:7]),int(back[8:10]))
+    stay = back_date-go_date
+    stay = stay.days
 
 
-url = 'http://lh-fs-json.production.vayant.com'
-request = {"User": "LufthansaTest", "Pass": "8b35317451999984abf8bf38b5863341da2b2e97", "Environment": "lh-vzg", "Origin": loc, "Destination": dests, "DepartureFrom": go, "LengthOfStay": stay, "MaxSolutions": 1}
+    url = 'http://lh-fs-json.production.vayant.com'
+    request = {"User": "LufthansaTest", "Pass": "8b35317451999984abf8bf38b5863341da2b2e97", "Environment": "lh-vzg", "Origin": loc, "Destination": dests, "DepartureFrom": go, "LengthOfStay": stay, "MaxSolutions": 1,  "GroupBy":"CityPair"}
 
 
-headers = {'content-type': 'application/json'}
+    headers = {'content-type': 'application/json'}
 
-response = requests.post(url, data=request, headers=headers).content
+    response = json.loads(requests.post(url, data=json.dumps(request), headers=headers).content)
+
+    prices = dict()
+    for i in response['CityPairs']:
+        prices[response['CityPairs'][i]['to']] = str(response['CityPairs'][i]['min']) + " " + response['CityPairs'][i]['cur']
+
     return response[response.find("<TextData>CityCode#")+19:response.find("<TextData>CityCode#")+22]
 
 
