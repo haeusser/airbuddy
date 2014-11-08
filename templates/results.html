@@ -74,11 +74,7 @@
             
         </div>
         
-        
-        {# COMMENT: This is me being lazy about printing the list of variables.
-                    In a final setup it might be smarter to hard code each
-                    key-value-pair in order to do pretty formatting etc ... #}
-        So you want to travel from {{ user_location }} on {{ start_date }} and return on {{ return_date }}.
+
         <table>
             {% for airport in prices %}
             <tr>
@@ -100,33 +96,3 @@
     </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Ausgabe Ergebnisse
-
-        {# COMMENT: This is me being lazy about printing the list of variables.
-                    In a final setup it might be smarter to hard code each
-                    key-value-pair in order to do pretty formatting etc ... #}
-        <table>
-        {% for key in passed_vars %}
-          <tr>
-            <td colspan=2 align="left">{% block loop_item scoped %}{{ key }}: {{ passed_vars[key] }}{% endblock %}</td>
-          </tr>
-        {% endfor %}
-        </table>
-
--->
-
-
-
