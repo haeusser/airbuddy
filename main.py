@@ -79,9 +79,13 @@ def get_price(airport):
 def results():
 
     passed_vars = dict()
-    if 'firstname' in request.form:
+    if 'location' in request.form:
         for key, value in request.form.items():
             passed_vars[key] = value
+
+    user_location = get_iata(get_latlon(passed_vars['location']))
+    start_date = passed_vars['departure']
+    return_date = passed_vars['return']
 
     friends_list = fb_response['data']
     for friend in friends_list:
