@@ -12,11 +12,11 @@
                     key-value-pair in order to do pretty formatting etc ... #}
         So you want to travel from {{ user_location }} on {{ start_date }} and return on {{ return_date }}.
         <table>
-        {% for a in prices %}
+        {% for airport in prices %}
           <tr>
-            <td colspan=2 align="left">{% block loop_item scoped %}{{ a }}: {{ prices[a] }}<br>
-                {% for friend in airports[a] %}
-                {% block loop_item2 scoped %}{{ friend['name'] }}<br>
+            <td colspan=2 align="left">{% block loop_item scoped %}{{ airport }}: {{ prices[airport] }}<br>
+                {% for friend in airports[airport] %}
+                {% block loop_item2 scoped %} {{ loop_item2.index }} :  {{ friend['name'] }} ({{ friend['location']['name'] }})<br>
               {% endblock %}{% endfor %}
                 {% endblock %}</td>
 
