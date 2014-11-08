@@ -53,7 +53,8 @@ def enterdate():
     return render_template('enterdate.html', **locals())
 
 
-def get_iata(lat, lon):
+def get_iata(coords):
+    (lat, lon) = coords
     url = 'https://www.swiss.com/web/api/SwissService.asmx'
     xml_request = '''<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/"><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><RequestNearestAirportInformation xmlns="http://www.swiss.com/"><ota_ScreenTextRQ MessageFunction="%s,%s" PrimaryLangID="de" Version="1" xmlns="http://www.opentravel.org/OTA/2003/05"><POS><Source><RequestorID ID="195004ec-da2a-4cba-8db0-f0ad20094802" MessagePassword="61022420B9C8FA46999094D06379D83B"/></Source></POS></ota_ScreenTextRQ></RequestNearestAirportInformation></s:Body></s:Envelope>'''
     headers = {'content-type': 'text/xml'}
@@ -61,21 +62,16 @@ def get_iata(lat, lon):
     response = requests.post(url, data=xml_request % (lon,lat), headers=headers).content
     return response[response.find("<TextData>CityCode#")+19:response.find("<TextData>CityCode#")+22]
 
-
+def get_latlon(city):
+    geolocator = Nominatim()
+    return (geolocator.geocode(city).latitude, geolocator.geocode(city).longitude)
 
 @app.route('/wait', methods=['POST', 'GET'])
 def wait():
     friends_list = fb_response
-    geolocator = Nominatim()
-
-
-
     for friend in friends_list['data']:
-        location = geolocator.geocode(friend['location']['name'])
-
-        print(friend['location']['name'] + str(location.latitude) + " " + str(location.longitude) + " ")
-
-
+        friend['airport'] = main.get_iata(main.get_latlon(friend['location']['name']))
+    
     return render_template('wait.html', **locals())
 
 
