@@ -68,22 +68,8 @@ def get_iata(coords):
     response = requests.post(url, data=xml_request % (lon,lat), headers=headers).content
     return response[response.find("<TextData>CityCode#")+19:response.find("<TextData>CityCode#")+22]
 
+
 def get_latlon(city):
-
-    ### BEGIN HARD CODE VALUES FOR DEMO PURPOSES ###
-    hard_code_list = {"Mountain View, California":(37.3855745, -122.08205),
-                        "San Francisco":(37.7792768, -122.4192704),
-                        "Santa Monica, CA":(34.0195598, -118.4869739),
-                        "Los Angeles, CA":(34.0724796, -118.3217456),
-                        "Hollywood, CA":(34.1028268, -118.3299899),
-                        "Madrid":(40.4167047, -3.7035825),
-                        "Klaukkala":(60.383333, 24.75),
-                        "Venice":(45.4371908, 12.3345899)}
-
-    return hard_code_list[city]
-
-    ### END HARD CODE VALUES FOR DEMO PURPOSES ###
-    
     geolocator = Nominatim()
     return (geolocator.geocode(city).latitude, geolocator.geocode(city).longitude)
 
@@ -145,9 +131,14 @@ def results():
     start_date = passed_vars['departure']
     return_date = passed_vars['return']
 
+    ### TO BE UNCOMMENTED FOR LIVE USE
+    '''
     friends_list = fb_response['data']
     for friend in friends_list:
         friend['airport'] = get_iata(get_latlon(friend['location']['name']))
+    '''
+    ### HARD CODED LIST FOR DEMO
+    friends_list = [{u'id': u'548055444', 'airport': 'SFO', u'name': u'Frieder Bluemle', u'location': {u'id': u'108212625870265', u'name': u'Mountain View, California'}}, {u'id': u'1275411665', 'airport': 'SFO', u'name': u'Robin Schmid', u'location': {u'id': u'108212625870265', u'name': u'San Francisco'}}, {u'id': u'1640723486', 'airport': 'LAX', u'name': u'Patricia Schneider', u'location': {u'id': u'108212625870265', u'name': u'Santa Monica, CA'}}, {u'id': u'1720495860', 'airport': 'LAX', u'name': u'Katja Schreiber', u'location': {u'id': u'108212625870265', u'name': u'Los Angeles, CA'}}, {u'id': u'100000603993850', 'airport': 'LAX', u'name': u'Frederik Greve', u'location': {u'id': u'106203279418033', u'name': u'Hollywood, CA'}}, {u'id': u'779131692123189', 'airport': 'MAD', u'name': u'Linda Braun', u'location': {u'id': u'108212625870265', u'name': u'Madrid'}}, {u'id': u'100001685564479', 'airport': 'LED', u'name': u'Dennis Charles', u'location': {u'id': u'108212625870265', u'name': u'Klaukkala'}}, {u'id': u'100004069003465', 'airport': 'VCE', u'name': u'Jun Han', u'location': {u'id': u'108212625870265', u'name': u'Venice'}}]
 
     airports = dict()
     for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
