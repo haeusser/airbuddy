@@ -440,7 +440,7 @@ blockquote {
         margin: 20px 0 0 0;
         line-height: 1.5;
     }
-
+    
     #img-logo {
         margin: 30px auto 3px auto;
     }
@@ -457,7 +457,7 @@ blockquote {
     margin: 20px 40px;
 }
 
-    @media screen and (max-width: 767px)  { #page-content-subpage { margin: 0; } }
+    @media screen and (max-width: 767px)  { #page-content-subpage { margin: 20px 40px; } }
     @media screen and (min-width: 960px)  {	#page-content-subpage { margin: 40px 70px; } }
     @media screen and (min-width: 1024px) {	#page-content-subpage { margin: 40px 100px; } }
 
