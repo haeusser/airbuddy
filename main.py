@@ -84,6 +84,11 @@ def enterflight():
     start_date = request.form['start_date']
     return render_template('enterflight.html', **locals())
 
+@app.route('/success', methods=['POST', 'GET'])
+def success():
+    airport = request.form['airport']
+    return render_template('success.html', **locals())
+
 @app.route('/booked', methods=['POST', 'GET'])
 def booked():
     airport = request.form['airport']
