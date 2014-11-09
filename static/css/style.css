@@ -169,7 +169,7 @@ pre, code, kbd, samp {
 	margin: 1em 0;
     white-space: pre;
     white-space: pre-wrap;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
 }
 
 sub, sup {
@@ -354,6 +354,14 @@ table {
 	table caption {
 		margin: 40px 0;
 	}
+
+    table tr {
+        margin: 0;
+    }
+    
+        @media screen and (max-width: 767px)  { table tr { margin: 0; } }
+        @media screen and (min-width: 960px)  {	table tr { margin: 0 0 30px 0; } }
+        @media screen and (min-width: 1024px) {	table tr { margin: 0 0 30px 0; } }
 	
 	table th {
 		padding: 5px;
@@ -446,8 +454,20 @@ blockquote {
     }
 
 #page-content-subpage {
-    margin: 20px;
+    margin: 20px 40px;
 }
+
+    @media screen and (max-width: 767px)  { #page-content-subpage { margin: 0; } }
+    @media screen and (min-width: 960px)  {	#page-content-subpage { margin: 40px 70px; } }
+    @media screen and (min-width: 1024px) {	#page-content-subpage { margin: 40px 100px; } }
+
+    #img-logo-simple {
+        margin: 0;
+    }
+
+        @media screen and (max-width: 767px)  { #img-logo-simple { margin: 0; } }
+        @media screen and (min-width: 960px)  {	#img-logo-simple { margin: 20px 0 30px 0; } }
+        @media screen and (min-width: 1024px) {	#img-logo-simple { margin: 20px 0 30px 0; } }
 
     .current-location {
         font-size: 0.938em;

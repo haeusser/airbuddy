@@ -25,7 +25,7 @@
 $send = $_GET['send'];
 $from = "From: AirBuddy <updates@airbuddy.eu>\n";
 $from .= "Content-Type: text/html\n";
-$to = "co.thaiss@gmail.com";
+$to = "airbuddyfriend@outlook.de";
 
 /* --- E-Mail: Invitation --- */
 if ($send == "invitation") {
