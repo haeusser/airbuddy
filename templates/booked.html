@@ -31,9 +31,9 @@
             <br>
             <br>
             <h1>Thank you for your booking, {{ first_name }}</h1>
-            <p>Your booking to <strong>{{ airport }}</strong> has been processed successfully.</p>
+            <p>Your booking to <strong>{{ airport }}</strong> on {{ start_date }} has been processed successfully.</p>
             <p><strong>Have fun!</strong></p>
-            <br><br>
+            <br>
             <p>If you want your friend to get informed about your flight, you can invite him to get the latest updates on your flight status:</p>
             <form action="/enterflight" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="first_name" value="{{ first_name }}">
