@@ -36,13 +36,13 @@
             <p>Please enter the fields below. Your friend will then be informed about your flight to <strong>{{ airport }}</strong></p>
             <form action="/success" method="POST" enctype="multipart/form-data" onSubmit="document.getElementById('loading-status').style.display='inline';">
                 <label>Your name</label>
-                <input type="text" name="name" tabindex="2" value="{{ first_name }}">
+                <input type="text" name="name" tabindex="1" value="{{ first_name }}">
                 <br>
                 <label>Your flight number</label>
-                <input type="text" name="flightnumber" tabindex="1" value="LH239">
+                <input type="text" name="flightnumber" tabindex="2" value="LH239">
                 <br>
                 <label>Date of departure</label>
-                <input type="text" name="date" tabindex="1" value="{{ start_date }}">
+                <input type="text" name="date" tabindex="3" value="{{ start_date }}">
                 <br><br><br>
                 <label>Your friend's e-mail address</label>
                 <input type="text" name="email" tabindex="3" value="">
