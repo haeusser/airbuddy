@@ -18,7 +18,7 @@ from flask import Flask, render_template, redirect, url_for, session, \
     request, send_from_directory
 from flask_oauth import OAuth
 
-fb_response = json.loads('{"data": [{"name": "Frieder Bluemle","location": {"id": "108212625870265", "name": "Mountain View, California"}, "id": "548055444"},{"name": "Robin Schmid", "location": {"id": "108212625870265", "name": "San Francisco"}, "id": "1275411665"},{"name": "Patrick Schneider", "location": {"id": "108212625870265", "name": "New York, USA"}, "id": "1640723486"},{"name": "Philipp Schreiber", "location": {"id": "108212625870265","name": "New York"}, "id": "1720495860"},{"name": "Frederik Greve", "location": {"id": "106203279418033", "name": "New York"}, "id": "100000603993850"},{"name": "Linus Braun", "location": {"id": "108212625870265", "name": "Madrid"}, "id": "779131692123189"},{"name": "Dennis Charles", "location": {"id": "108212625870265", "name": "Moscow"}, "id": "100001685564479"},{"name": "Kaley", "location": {"id": "108212625870265", "name": "Athens"}, "id": "100004069003465"}],"paging": {"next": "https://graph.facebook.com/v2.2/10204134077049823/friends?fields=name,location&limit=25&offset=25&__after_id=enc_AeyOvUtLi65lGbIDAm1Ax01C7JF1LVA_LHmKHY9YHbm0RaGc6EdiDS71Qmu7SdSEjhJHjxcFI58zmbRSjEVDuLFJ"},"summary": {"total_count": 1099}}')
+fb_response = json.loads('{"data": [{"name": "Frieder Bluemle","location": {"id": "108212625870265", "name": "Mountain View, California"}, "id": "548055444"},{"name": "Robin Schmid", "location": {"id": "108212625870265", "name": "San Francisco"}, "id": "1275411665"},{"name": "Patrick Schneider", "location": {"id": "108212625870265", "name": "Santa Monica, CA"}, "id": "1640723486"},{"name": "Philipp Schreiber", "location": {"id": "108212625870265","name": "Los Angeles, CA"}, "id": "1720495860"},{"name": "Frederik Greve", "location": {"id": "106203279418033", "name": "Hollywood, CA"}, "id": "100000603993850"},{"name": "Linus Braun", "location": {"id": "108212625870265", "name": "Madrid"}, "id": "779131692123189"},{"name": "Dennis Charles", "location": {"id": "108212625870265", "name": "Klaukkala"}, "id": "100001685564479"},{"name": "Kaley", "location": {"id": "108212625870265", "name": "Venice"}, "id": "100004069003465"}],"paging": {"next": "https://graph.facebook.com/v2.2/10204134077049823/friends?fields=name,location&limit=25&offset=25&__after_id=enc_AeyOvUtLi65lGbIDAm1Ax01C7JF1LVA_LHmKHY9YHbm0RaGc6EdiDS71Qmu7SdSEjhJHjxcFI58zmbRSjEVDuLFJ"},"summary": {"total_count": 1099}}')
 
 # create a Flask app. This is the actual webapp handler.
 app = Flask(__name__)
@@ -73,10 +73,16 @@ def wait():
     return render_template('wait.html', **locals())
 
 def get_price(loc, dests, go, back):
+    ### BEGIN HARD CODED TRAVEL DATES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
+    go = "2014-11-17"
+    back = "2014-11-21"
+    ### END HARD CODED TRAVEL DATES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
     go_date = datetime.datetime(int(go[0:4]),int(go[5:7]),int(go[8:10]))
     back_date = datetime.datetime(int(back[0:4]),int(back[5:7]),int(back[8:10]))
     stay = back_date-go_date
     stay = stay.days
+
+
     url = 'http://lh-fs-json.production.vayant.com'
     request = {"User": "LufthansaTest", "Pass": "8b35317451999984abf8bf38b5863341da2b2e97", "Environment": "lh-vzg", "Origin": loc, "Destination": dests, "DepartureFrom": go, "LengthOfStay": stay, "MaxSolutions": 10,  "GroupBy":"CityPair"}
     headers = {'content-type': 'application/json'}
@@ -84,7 +90,7 @@ def get_price(loc, dests, go, back):
     prices = dict()
     for i in response['CityPairs']:
         prices[response['CityPairs'][i]['to']] = str(response['CityPairs'][i]['min']) + " " + response['CityPairs'][i]['cur']
-    return response[response.find("<TextData>CityCode#")+19:response.find("<TextData>CityCode#")+22]
+    return prices
 
 
 @app.route('/results', methods=['POST', 'GET'])
@@ -108,8 +114,10 @@ def results():
     for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
         airports[key] = list(group)
 
-    prices = get_price(user_location, [a for a in airports], start_date, return_date)
-    #prices = {'ROM': 199, 'MOW': 199, 'ATL': 199, 'LON': 199, 'SFO': 199, 'MAD': 199, 'NYC': 199, 'NCE': 199}
+    #prices = get_price(user_location, [a for a in airports], start_date, return_date)
+    ### BEGIN HARD CODED PRICES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
+    prices = {u'LAX': u'2902.78 EUR', u'SFO': u'3148.42 EUR', u'LED': u'727.24 EUR', u'VCE': u'641.49 EUR', u'MAD': u'448.23 EUR'}
+    ### END HARD CODED PRICES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
     return render_template('results.html', **locals())
 
 
