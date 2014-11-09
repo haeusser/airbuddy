@@ -9,13 +9,12 @@
         <title>AirBuddy - there is no better way to travel to your friends</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta name="author" content="Coinlex Webdesign" />
+        <meta name="author" content="AirBuddy" />
         <meta name="robots" content="index, follow" />
 
         <meta name="audience" content="all"/>
         <meta name="language" content="de" />
-        <meta name="author" content="Coinlex Webdesign" />
-        <meta name="copyright" content="All Rights reserved! Copyright by Coinlex Webdesign!" />
+        <meta name="author" content="AirBuddy" />
 
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
@@ -32,11 +31,17 @@
             <img id="img-logo-simple" src="../static/images/airbuddy-logo-simple.png" alt="">
             <br>
             <br>
-            <h1>Thank you for your booking</h1>
+            <h1>Thank you for your booking, {{ first_name }}</h1>
             <p>Your booking to <strong>{{ airport }}</strong> has been processed successfully.</p>
-            <p><strong>Thank you for flying with Lufthansa!</strong></p>
+            <p><strong>Have fun!</strong></p>
             <br><br>
-            <p>If you want your friend to get informed about your flight, you can invite him <a href="/flightstat" alt=""><strong>here</strong></a> to get the latest updates on your flight status.</p>
+            <p>If you want your friend to get informed about your flight, you can invite him to get the latest updates on your flight status:</p>
+            <form action="/enterflight" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="first_name" value="{{ first_name }}">
+                <input type="hidden" name="airport" value="{{ airport }}">
+                <input type="hidden" name="start_date" value="{{ start_date }}">
+                <input type="submit" class="btn-getticket" value="Invite my friend">
+            </form>
             <br>
             <br>
             <br>            

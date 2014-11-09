@@ -83,7 +83,13 @@
             <tr>
                 <td><h5>{% block loop_item scoped %}{{ airport }}</h5></td>
                 <td class="price">{{ prices[airport] }}</td>
-                <td><form action="{{ form_url }}" method="POST" enctype="multipart/form-data"><input type="hidden" name="airport" value="{{ airport }}"><input type="submit" class="btn-getticket" value="Get ticket!"></form></td>
+                <td><form action="/booked" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="first_name" value="{{ first_name }}">
+                        <input type="hidden" name="airport" value="{{ airport }}">
+                        <input type="hidden" name="start_date" value="{{ start_date }}">
+                        <input type="submit" class="btn-getticket" value="Get ticket!">
+                    </form>
+                </td>
             </tr>
             <tr>
                 {% for friend in airports[airport] %}
