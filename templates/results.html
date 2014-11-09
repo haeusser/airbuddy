@@ -57,7 +57,7 @@
                 <tr>
                     {% for friend in airports[airport] %}
                     {% block loop_item2 scoped %}
-                    <td><img src="../static/images/facebook/fb-{{ friend['id'] }}.png"><br>{{ friend['name'] }}<br><i>{{ friend['location']['name'] }}</i></td>
+                    <td><img src="../static/images/facebook/{{ friend['id'] }}.png"><br>{{ friend['name'] }}<br><i>{{ friend['location']['name'] }}</i></td>
                     {% endblock %}{% endfor %}
                 </tr>
                 {% endblock %}
