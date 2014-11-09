@@ -138,7 +138,7 @@ def results():
     for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
         airports[key] = list(group)
 
-    start_date = go[8:10] + "." + go[0:4] + "." + go[5:7]
+    start_date = start_date[8:10] + "." + start_date[0:4] + "." + start_date[5:7]
 
     ### BEGIN HARD CODED PRICES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
     # prices = get_price(user_location, [a for a in airports], start_date, return_date)
