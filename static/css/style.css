@@ -263,7 +263,11 @@ p, li, dl, dt, dd, blockquote, input, table, form label {
 	hyphens: auto;
 }
 	
-	/*
+	@media screen and (max-width: 767px)  { p, li, dl, dt, dd, blockquote, input, table, form label { font-size: 0.938em; } }
+	@media screen and (min-width: 768px)  {	p, li, dl, dt, dd, blockquote, input, table, form label { font-size: 1.063em; } }
+	@media screen and (min-width: 1024px) {	p, li, dl, dt, dd, blockquote, input, table, form label { font-size: 1.063em; } }
+    
+    /*
     @media screen and (max-width: 767px)  { p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
 	@media screen and (min-width: 768px)  {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: auto; -moz-hyphens: auto; -ms-hyphens: auto; hyphens: auto; } }
 	@media screen and (min-width: 1024px) {	p, li, dl, dt, dd, blockquote, input, table, form label { -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; } }
@@ -354,14 +358,6 @@ table {
 	table caption {
 		margin: 40px 0;
 	}
-
-    table tr {
-        padding-bottom: 0;
-    }
-    
-        @media screen and (max-width: 767px)  { table tr { padding-bottom: 0; } }
-        @media screen and (min-width: 960px)  {	table tr { padding-bottom: 30px; } }
-        @media screen and (min-width: 1024px) {	table tr { padding-bottom: 30px; } }
 	
 	table th {
 		padding: 5px;
@@ -371,11 +367,18 @@ table {
 	}
 	
 	table td {
-		padding: 5px;
         text-align: center;
         width: 33%;
         font-size: 0.938em;
 	}
+
+    table td {
+        padding: 5px 5px 50px 5px;
+    }
+    
+        @media screen and (max-width: 767px)  { table td { padding: 5px 5px 70px 5px; } }
+        @media screen and (min-width: 960px)  {	table td { padding: 5px 5px 70px 5px; } }
+        @media screen and (min-width: 1024px) {	table td { padding: 5px 5px 70px 5px; } }
 
         table td h5 {
             font-weight: bold;
@@ -458,8 +461,8 @@ blockquote {
 }
 
     @media screen and (max-width: 767px)  { #page-content-subpage { margin: 20px 40px; } }
-    @media screen and (min-width: 960px)  {	#page-content-subpage { margin: 40px 70px; } }
-    @media screen and (min-width: 1024px) {	#page-content-subpage { margin: 40px 100px; } }
+    @media screen and (min-width: 960px)  {	#page-content-subpage { margin: 40px 150px; } }
+    @media screen and (min-width: 1024px) {	#page-content-subpage { margin: 40px 150px; } }
 
     #img-logo-simple {
         margin: 0;
