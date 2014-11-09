@@ -333,7 +333,7 @@ input[type=submit] {
 	font-family: 'Open Sans', Arial, Helvetica, sans-serif;
 	color: #FFF;
 	background-color: #040C39;
-	border: 1px solid #FFF;
+	border: none;
 	padding: 3px;
     font-size: 0.938em;
 }

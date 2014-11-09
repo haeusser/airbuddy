@@ -44,7 +44,7 @@
                 <tr>
                     <td><h5>London</h5></td>
                     <td class="price">99$</td>
-                    <td><a class="btn-getticket" href="#">Get ticket!</a></td>
+                    <td><form action="{{ form_url }}" method="POST" enctype="multipart/form-data"><input type="submit" class="btn-getticket" value="Get ticket!"></form></td>
                 </tr>
                 <tr>
                     <td><img src="../static/images/facebook/fb-1.png"><br>Katja Huber</td>
@@ -58,7 +58,7 @@
                 <tr>
                     <td><h5>New York</h5></td>
                     <td class="price">699$</td>
-                    <td><a class="btn-getticket" href="#">Get ticket!</a></td>
+                    <td><form action="{{ form_url }}" method="POST" enctype="multipart/form-data"><input type="submit" class="btn-getticket" value="Get ticket!"></form></td>
                 </tr>
                 <tr>
                     <td><img src="../static/images/facebook/fb-4.png"><br>Linda Jason</td>
@@ -80,7 +80,7 @@
             <tr>
                 <td><h5>{% block loop_item scoped %}{{ airport }}</h5></td>
                 <td>{{ prices[airport] }}</td>
-                <td><a class="btn-getticket" href="#">Get ticket!</a></td>
+                <td><form action="{{ form_url }}" method="POST" enctype="multipart/form-data"><input type="hidden" name="airport" value="{{ airport }}"><input type="submit" class="btn-getticket" value="Get ticket!"></form></td>
             </tr>
             <tr>
                 {% for friend in airports[airport] %}
