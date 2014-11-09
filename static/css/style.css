@@ -360,8 +360,8 @@ table {
     }
     
         @media screen and (max-width: 767px)  { table tr { padding-bottom: 0; } }
-        @media screen and (min-width: 960px)  {	table tr { padding-bottom: 0 0 30px 0; } }
-        @media screen and (min-width: 1024px) {	table tr { padding-bottom: 0 0 30px 0; } }
+        @media screen and (min-width: 960px)  {	table tr { padding-bottom: 30px; } }
+        @media screen and (min-width: 1024px) {	table tr { padding-bottom: 30px; } }
 	
 	table th {
 		padding: 5px;
