@@ -46,6 +46,10 @@ def getFriendsList():
 def enterdate():
     form_url = '/results'
     data = facebook.get('/me').data
+
+    first_name = "unknown"
+    location = "unknown"
+
     if 'id' in data and 'name' in data:
         user_id = data['id']
         user_name = data['name']
