@@ -374,7 +374,7 @@ table {
 
     table td {
         padding: 5px 5px 50px 5px;
-    }
+    } 
     
         @media screen and (max-width: 767px)  { table td { padding: 5px 5px 70px 5px; } }
         @media screen and (min-width: 960px)  {	table td { padding: 5px 5px 70px 5px; } }
