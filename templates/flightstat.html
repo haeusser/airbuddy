@@ -32,11 +32,20 @@
             <img id="img-logo-simple" src="../static/images/airbuddy-logo-simple.png" alt="">
             <br>
             <br>
-            <h1>Thank you for your booking</h1>
-            <p>Your booking to <strong>{{ airport }}</strong>with has been processed successfully.</p>
-            <p>Thank you for flying with Lufthansa!</p>
-            <br><br>
-            <p>If you want your friend to get informed about your flight, you can invite him <a href="/flightstat" alt=""><strong>here</strong></a> to get the latest updates on your flight status.</p>
+            <h1>Flightstatus</h1>
+            <p></p>
+            <form action="{{ form_url }}" method="POST" enctype="multipart/form-data" onSubmit="document.getElementById('loading-status').style.display='inline';">
+                <label>Your location</label>
+                <input type="text" name="location" tabindex="1" value="{{ location }}">
+                <br><br>
+                <label>Depart on</label>
+                <input type="date" name="departure" tabindex="2"><br>
+                <label>Return on</label>
+                <input type="date" name="return" tabindex="3"><br>
+                <br><br>
+                <input type="submit" value="Find flights to your friends" tabindex="4"><br><br>
+                <img id="loading-status" src="../static/images/loading.gif" alt="" style="display:none;" />
+            </form>
             
         
         </div>
