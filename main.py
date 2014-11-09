@@ -69,6 +69,21 @@ def get_iata(coords):
     return response[response.find("<TextData>CityCode#")+19:response.find("<TextData>CityCode#")+22]
 
 def get_latlon(city):
+
+    ### BEGIN HARD CODE VALUES FOR DEMO PURPOSES ###
+    hard_code_list = {"Mountain View, California":(37.3855745, -122.08205),
+                        "San Francisco":(37.7792768, -122.4192704),
+                        "Santa Monica, CA":(34.0195598, -118.4869739),
+                        "Los Angeles, CA":(34.0724796, -118.3217456),
+                        "Hollywood, CA":(34.1028268, -118.3299899),
+                        "Madrid":(40.4167047, -3.7035825),
+                        "Klaukkala":(60.383333, 24.75),
+                        "Venice":(45.4371908, 12.3345899)}
+
+    return hard_code_list[city]
+
+    ### END HARD CODE VALUES FOR DEMO PURPOSES ###
+    
     geolocator = Nominatim()
     return (geolocator.geocode(city).latitude, geolocator.geocode(city).longitude)
 
@@ -138,7 +153,8 @@ def results():
     for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
         airports[key] = list(group)
 
-    start_date = start_date[8:10] + "." + start_date[0:4] + "." + start_date[5:7]
+    start_date = start_date[8:10] + "." + start_date[5:7] + "." + start_date[0:4]
+    return_date = return_date[8:10] + "." + return_date[5:7] + "." + return_date[0:4]
 
     ### BEGIN HARD CODED PRICES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
     # prices = get_price(user_location, [a for a in airports], start_date, return_date)
