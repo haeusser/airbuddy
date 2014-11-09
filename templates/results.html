@@ -42,62 +42,29 @@
             <br>
             <br>
             <table>
+                {% for airport in prices %}
                 <tr>
-                    <td><h5>London</h5></td>
-                    <td class="price">99$</td>
-                    <td><form action="{{ form_url }}" method="POST" enctype="multipart/form-data"><input type="submit" class="btn-getticket" value="Get ticket!"></form></td>
+                    <td><h5>{% block loop_item scoped %}{{ airport }}</h5></td>
+                    <td class="price">{{ prices[airport] }}</td>
+                    <td><form action="/booked" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="first_name" value="{{ first_name }}">
+                            <input type="hidden" name="airport" value="{{ airport }}">
+                            <input type="hidden" name="start_date" value="{{ start_date }}">
+                            <input type="submit" class="btn-getticket" value="Get ticket!">
+                        </form>
+                    </td>
                 </tr>
                 <tr>
-                    <td><img src="../static/images/facebook/fb-1.png"><br>Katja Huber</td>
-                    <td><img src="../static/images/facebook/fb-2.png"><br>Steve Johnson</td>
-                    <td><img src="../static/images/facebook/fb-3.png"><br>Maik Abs</td>
+                    {% for friend in airports[airport] %}
+                    {% block loop_item2 scoped %}
+                    <td><img src="../static/images/facebook/fb-{{ friend['id'] }}.png"><br>{{ friend['name'] }}<br><i>{{ friend['location']['name'] }}</i></td>
+                    {% endblock %}{% endfor %}
                 </tr>
-            </table>
-            <br>
-            <br>
-            <table>
-                <tr>
-                    <td><h5>New York</h5></td>
-                    <td class="price">699$</td>
-                    <td><form action="{{ form_url }}" method="POST" enctype="multipart/form-data"><input type="submit" class="btn-getticket" value="Get ticket!"></form></td>
-                </tr>
-                <tr>
-                    <td><img src="../static/images/facebook/fb-4.png"><br>Linda Jason</td>
-                    <td><img src="../static/images/facebook/fb-5.png"><br>Niclas White</td>
-                    <td><img src="../static/images/facebook/fb-6.png"><br>Yun Han</td>
-                </tr>
-                <tr>
-                    <td><img src="../static/images/facebook/fb-7.png"><br>Lea Bauer</td>
-                    <td><img src="../static/images/facebook/fb-8.png"><br>Peter Jobs</td>
-                    <td></td>
-                </tr>
+                {% endblock %}
+                {% endfor %}
             </table>
             
         </div>
-        
-
-        <table>
-            {% for airport in prices %}
-            <tr>
-                <td><h5>{% block loop_item scoped %}{{ airport }}</h5></td>
-                <td class="price">{{ prices[airport] }}</td>
-                <td><form action="/booked" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="first_name" value="{{ first_name }}">
-                        <input type="hidden" name="airport" value="{{ airport }}">
-                        <input type="hidden" name="start_date" value="{{ start_date }}">
-                        <input type="submit" class="btn-getticket" value="Get ticket!">
-                    </form>
-                </td>
-            </tr>
-            <tr>
-                {% for friend in airports[airport] %}
-                {% block loop_item2 scoped %}
-                <td><img src="../static/images/facebook/fb-{{ friend['id'] }}.png"><br>{{ friend['name'] }}<br><i>{{ friend['location']['name'] }}</i></td>
-                {% endblock %}{% endfor %}
-            </tr>
-            {% endblock %}
-            {% endfor %}
-        </table>
         <script type="text/javascript" src="../static/js/retina/retina.js"></script>
     
     </body>
