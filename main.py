@@ -72,6 +72,21 @@ def get_latlon(city):
 def wait():
     return render_template('wait.html', **locals())
 
+
+@app.route('/enterflight', methods=['POST', 'GET'])
+def enterflight():
+    airport = request.form['airport']
+    first_name = request.form['first_name']
+    start_date = request.form['start_date']
+    return render_template('enterflight.html', **locals())
+
+@app.route('/booked', methods=['POST', 'GET'])
+def booked():
+    airport = request.form['airport']
+    first_name = request.form['first_name']
+    start_date = request.form['start_date']
+    return render_template('booked.html', **locals())
+
 def get_price(loc, dests, go, back):
     ### BEGIN HARD CODED TRAVEL DATES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
     go = "2014-11-17"
@@ -101,7 +116,7 @@ def results():
     if 'location' in request.form:
         for key, value in request.form.items():
             passed_vars[key] = value
-
+    first_name = passed_vars['first_name']
     user_location = get_iata(get_latlon(passed_vars['location']))
     start_date = passed_vars['departure']
     return_date = passed_vars['return']
@@ -114,9 +129,10 @@ def results():
     for key, group in itertools.groupby(friends_list, lambda friend: friend['airport']):
         airports[key] = list(group)
 
-    #prices = get_price(user_location, [a for a in airports], start_date, return_date)
+
     ### BEGIN HARD CODED PRICES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
-    prices = {u'LAX': u'2902.78 EUR', u'SFO': u'3148.42 EUR', u'LED': u'727.24 EUR', u'VCE': u'641.49 EUR', u'MAD': u'448.23 EUR'}
+    # prices = get_price(user_location, [a for a in airports], start_date, return_date)
+    prices = {u'LAX': u'802.78 EUR', u'SFO': u'648.42 EUR', u'LED': u'327.24 EUR', u'VCE': u'141.49 EUR', u'MAD': u'248.23 EUR'}
     ### END HARD CODED PRICES TO COMPLY WITH VAYANT TEST ENVIRONMENT ###
     return render_template('results.html', **locals())
 
@@ -125,6 +141,7 @@ def results():
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'static/images/favicon.ico')
+
 
 @app.route('/privacy', methods=['GET'])
 def privacy():
